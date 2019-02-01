@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class"col-12" id="title">
+            <h1>Eat Da Burger??</h1>
+
+            <div>
+
+                <h2>Here are the Burgers that you have not yet enjoyed</h2>
+
+                {{#each burgerRow}}
+                {{#unless this.devoured}}
+
+                <div>
+
+                    <ul>
+                        <li>
+                            {{this.burger_name}}
+                            <button type="submit" id={{this.id}} value={{this.devoured}}>Eat It!</button>
+                        </li>
+                    </ul>
+
+                </div>
+                {{/unless}}
+                {{/each}}
+
+                <hr />
+
+                <h2>These are the burgers that you have already enjoyed</h2>
+
+                {{#each burgerRow}}
+                {{#if this.devoured}}
+
+                <div>
+                    <ul>
+                        <li>
+                            {{this.burger_name}}
+                        </li>
+                    </ul>
+                </div>
+
+                {{/if}}
+                {{/each}}
+
+                <h1>Add a Burger!</h1>
+                <form action="/" method="POST">
+                    <div>
+                        <label for="add_a_burger">Add a burger.</label>
+                        <input type="text" id="addBurger" name="user_burger">
+                    </div>
+                    <div class="button">
+                        <button type="submit" id="addButton">Add Your burger</button>
+                    </div>
+                </form>
+
+                <script>
+                    $(document).ready(function () {
+                        $(document).on("click", "#this.id", function (event) {
+                            event.preventDefault();
+                            let id = $(this).burgerRow("id");
+                            console.log(id);
+                        });
+                    });
+
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+</div>
